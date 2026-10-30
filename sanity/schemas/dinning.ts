@@ -24,5 +24,34 @@ export const dinning = defineType({
       type: "image",
       options: { hotspot: true },
     }),
+    defineField({
+      name: "description",
+      title: "Description",
+      type: "array",
+      of: [{ type: "block" }],
+    }),
+    defineField({
+      name: "images",
+      title: "Images",
+      type: "array",
+      of: [
+        {
+          type: "object",
+          fields: [
+            defineField({
+              name: "image",
+              title: "Image",
+              type: "image",
+              options: { hotspot: true },
+            }),
+            defineField({
+              name: "imageTitle",
+              title: "Image Title",
+              type: "string",
+            }),
+          ],
+        },
+      ],
+    }),
   ],
 });
