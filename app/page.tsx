@@ -14,6 +14,7 @@ import HanifarubayComponent from "./components/Hanifarubay";
 import Accordions from "./components/Accordions";
 import OptimizedVideoComponent from "./components/OptimizedVideoComponent";
 import WhatsAppWidget from "./components/WhatsAppWidget";
+import Motion from "./components/Motion";
 
 export const revalidate = 60;
 
@@ -78,16 +79,21 @@ export default async function page() {
         <div className=' mb-24 md:mb-32'>
           <Dinning />
         </div>
-        <div className=' mb-24 md:mb-32'>
-          <HanifarubayComponent />
-        </div>
-        <div className=' mb-24'>
-          <LocationComponent />
-        </div>
-
-        <div>
-          <Accordions data={faqData} />
-        </div>
+        <Motion>
+          <div className=' mb-24 md:mb-32'>
+            <HanifarubayComponent />
+          </div>
+        </Motion>
+        <Motion>
+          <div className=' mb-24'>
+            <LocationComponent />
+          </div>
+        </Motion>
+        <Motion>
+          <div>
+            <Accordions data={faqData} />
+          </div>
+        </Motion>
       </div>
       <div>
         <WhatsAppWidget />

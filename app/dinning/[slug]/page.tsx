@@ -1,13 +1,17 @@
+import FoodGallery from "@/app/components/FoodGallery";
 import BackButton from "@/app/components/GoBack";
 import { client } from "@/sanity/lib/client";
 import { urlFor } from "@/sanity/lib/image";
+import { PortableText } from "next-sanity";
 import Image from "next/image";
 import React from "react";
 
 async function getActivities(slug: string) {
   const query = `*[_type == "dinning" && slug.current == $slug][0]{
     title,
-    coverPhoto
+    coverPhoto,
+    description,
+    images[]
     }`;
   const data = await client.fetch(
     query,
@@ -47,7 +51,14 @@ export default async function page({
         </div>
       </div>
 
-      <div className='px-4 lg:px-0 min-h-screen md:w-[80vw] mx-auto'></div>
+      <div className='px-4 lg:px-0 min-h-screen md:w-[80vw] mx-auto'>
+        <div className='mt-6 md:mt-12 prose custom-prose body-font'>
+          <PortableText value={dinning.description} />
+        </div>
+        <div className='mt-12 md:mt-24'>
+          <FoodGallery data={dinning.images} />
+        </div>
+      </div>
     </div>
   );
 }

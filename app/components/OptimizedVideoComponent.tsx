@@ -78,9 +78,7 @@ export default function OptimizedVideoComponent() {
         poster='/images/videoCover.jpg'>
         <source
           src={
-            isMobile
-              ? "/videos/heroVideoMobile720p.mp4"
-              : "/videos/heroVideo.mp4"
+            isMobile ? "/videos/heroVideoMobile.mp4" : "/videos/heroVideo.mp4"
           }
           type='video/mp4'
         />
