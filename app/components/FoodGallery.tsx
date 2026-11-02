@@ -24,7 +24,7 @@ export default function FoodGallery({ data }: { data: any }) {
     })) ?? [];
 
   return (
-    <div className='mt-6 lg:mt-12 pb-24'>
+    <div className='mt-6 lg:mt-12 pb-12 md:pb-24'>
       <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'>
         {data &&
           data.map((img: any, i: number) => {
