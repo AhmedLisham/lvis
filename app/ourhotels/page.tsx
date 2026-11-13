@@ -1,6 +1,15 @@
+import { client } from "@/sanity/lib/client";
 import React from "react";
 
-export default function page() {
+async function getProperties() {
+  const query = `*[_type == "properties"]`;
+  const data = await client.fetch(query, {}, { next: { revalidate: 60 } });
+  return data;
+}
+
+export default async function page() {
+  const properties = await getProperties();
+
   return (
     <div className='min-h-screen '>
       <div className='h-32'></div>

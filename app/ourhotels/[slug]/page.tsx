@@ -8,6 +8,7 @@ import { urlFor } from "@/sanity/lib/image";
 import { PortableText } from "next-sanity";
 import Image from "next/image";
 import React from "react";
+import type { Metadata } from "next";
 
 async function getProperties(slug: string) {
   const query = `*[_type == "properties" && slug.current == $slug] | order(propertyName asc){
@@ -17,6 +18,8 @@ async function getProperties(slug: string) {
     slug,
     images,
     propertyDetails,
+    seoTitle,
+    seoDescription,
     roomTypes[]{
       roomType,
       roomCoverPhoto,
@@ -29,6 +32,49 @@ async function getProperties(slug: string) {
     { next: { revalidate: 60 } },
   );
   return data;
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+
+  const properties = await getProperties(slug);
+
+  if (!properties) {
+    return {
+      title: "Property Not Found | LVIS Hotels",
+    };
+  }
+
+  const title =
+    properties.seoTitle ||
+    `${properties.propertyName} | Hotel in Dharavandhoo, Maldives`;
+
+  const description =
+    properties.seoDescription ||
+    properties.shortDescription ||
+    `Discover ${properties.propertyName}, part of LVIS Hotels in Dharavandhoo, Maldives, near the famous Hanifaru Bay.`;
+
+  const canonical = `https://www.lvishotels.com/ourhotels/${slug}`;
+
+  return {
+    title,
+    description,
+    keywords: [],
+    alternates: {
+      canonical,
+    },
+    openGraph: {
+      title,
+      description,
+      url: canonical,
+      siteName: "LVIS Hotels",
+      type: "website",
+    },
+  };
 }
 
 export default async function SlugPage({

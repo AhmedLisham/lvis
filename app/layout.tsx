@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "LVIS Hotels | Dharavandhoo | Hanifarubay",
+  title: "LVIS Hotels | Hotels in Dharavandhoo Near Hanifaru Bay, Maldives",
   description:
     "Affordable island stays in Dharavandhoo, Maldives, near Hanifaru Bay — home to manta rays and whale sharks",
 };

@@ -43,7 +43,7 @@ export default async function HanifarubayComponent() {
       </div>
       <div className='mt-4 md:mt-8 w-full flex items-center justify-center'>
         <Link
-          href={"/hanifarubay"}
+          href={"/hanifaru-bay"}
           className='text-sm md:text-base body-font border border-cyan-500 hover:bg-cyan-500 px-6 md:px-8  rounded-xl text-cyan-500 hover:text-white'>
           Learn more
         </Link>

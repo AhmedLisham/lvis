@@ -13,10 +13,10 @@ const navLinks = [
     url: "/",
   },
 
-  // {
-  //   name: "Our Hotels",
-  //   url: "/ourhotels",
-  // },
+  {
+    name: "Our Hotels",
+    url: "/ourhotels",
+  },
 
   {
     name: "Promotions",
