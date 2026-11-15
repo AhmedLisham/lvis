@@ -11,6 +11,7 @@ import { contacts } from "../schemas/contacts";
 import { address } from "../schemas/address";
 import { promotions } from "../schemas/promotiions";
 import { ourHotelPageBanner } from "../schemas/ourHotelPageBanner";
+import { hotelsInDharavandhoo } from "../schemas/hotelsInDharavandhoo";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -25,6 +26,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     contacts,
     address,
     promotions,
+    hotelsInDharavandhoo,
     ourHotelPageBanner,
   ],
 };

@@ -5,6 +5,7 @@ import React from "react";
 import GalleryComponent from "../components/GalleryComponent";
 import { PortableText } from "next-sanity";
 import BackButton from "../components/GoBack";
+import Link from "next/link";
 
 async function getLocationData() {
   const query = `*[_type == "location"]{
@@ -46,7 +47,13 @@ export default async function page() {
             )}
           </div>
         </div>
-
+        <div>
+          <Link
+            href={"/hotels-in-dharavandhoo"}
+            className='text-sm md:text-base bg-cyan-500 hover:bg-cyan-400 px-4 py-1 text-white body-font rounded '>
+            View Accommodation
+          </Link>
+        </div>
         <div className='mx-auto'>
           <h2 className='text-xl md:text-2xl text-zinc-600 text-center  uppercase body-font mt-6 md:mt-12'>
             Photo Gallery

@@ -144,9 +144,9 @@ export default async function Page() {
 
                 {/* Hotel Content */}
                 <div className='absolute inset-x-0 bottom-0 p-7 md:p-8 text-white'>
-                  <p className='text-[10px] tracking-[0.3em] uppercase text-white/70 mb-3 body-font'>
+                  {/* <p className='text-[10px] tracking-[0.3em] uppercase text-white/70 mb-3 body-font'>
                     Our Collection · {String(index + 1).padStart(2, "0")}
-                  </p>
+                  </p> */}
 
                   <h2 className='font-serif text-2xl md:text-3xl mb-4'>
                     {property.propertyName}
