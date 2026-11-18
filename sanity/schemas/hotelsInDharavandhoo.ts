@@ -25,6 +25,12 @@ export const hotelsInDharavandhoo = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: "shortdescription",
+      title: "Short Description (before hotels)",
+      type: "text",
+      rows: 4,
+    }),
+    defineField({
       name: "description",
       title: "Description",
       type: "array",
