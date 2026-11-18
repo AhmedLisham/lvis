@@ -149,10 +149,11 @@ import type { Metadata } from "next";
 import HotelsExperience from "../components/HotelsExperience";
 
 async function getProperties() {
-  const query = `*[_type == "properties"]{
+  const query = `*[_type == "properties"] | order(_createdAt asc) {
     propertyName,
     coverImage,
-    slug
+    slug,
+    shortDescription,
   }`;
 
   return client.fetch(
@@ -214,6 +215,7 @@ export default async function Page() {
       properties={properties.map((property: any) => ({
         propertyName: property.propertyName,
         slug: property.slug.current,
+        shortdescription: property.shortDescription,
         coverImage: property.coverImage
           ? urlFor(property.coverImage)
           : undefined,

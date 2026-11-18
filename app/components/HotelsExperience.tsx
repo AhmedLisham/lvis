@@ -329,18 +329,21 @@
 
 "use client";
 
-import React, { useLayoutEffect, useRef } from "react";
+import React, { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
+
 import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 type Property = {
   propertyName: string;
   slug: string;
   coverImage?: string;
+  shortdescription: string;
 };
 
 type Props = {
@@ -354,7 +357,6 @@ type Props = {
 
 export default function HotelsExperience({
   title,
-  subtitle,
   shortdescription,
   coverImage,
   properties,
@@ -362,19 +364,26 @@ export default function HotelsExperience({
 }: Props) {
   const container = useRef<HTMLDivElement>(null);
 
-  useLayoutEffect(() => {
-    const ctx = gsap.context(() => {
-      // Hero animation
+  useGSAP(
+    () => {
+      // HERO
+      const heroImage = container.current?.querySelector(".hero-image");
+      const heroContent =
+        container.current?.querySelectorAll(".hero-content > *");
+
       const hero = gsap.timeline();
 
-      hero
-        .from(".hero-image", {
+      if (heroImage) {
+        hero.from(heroImage, {
           scale: 1.15,
           duration: 2,
           ease: "power3.out",
-        })
-        .from(
-          ".hero-content > *",
+        });
+      }
+
+      if (heroContent?.length) {
+        hero.from(
+          heroContent,
           {
             y: 40,
             opacity: 0,
@@ -384,9 +393,14 @@ export default function HotelsExperience({
           },
           "-=1.2",
         );
+      }
 
-      // Section heading
-      gsap.utils.toArray<HTMLElement>(".reveal-heading").forEach((item) => {
+      // SECTION HEADINGS
+      const headings = gsap.utils.toArray<HTMLElement>(
+        container.current!.querySelectorAll(".reveal-heading"),
+      );
+
+      headings.forEach((item) => {
         gsap.from(item, {
           y: 45,
           opacity: 0,
@@ -400,8 +414,12 @@ export default function HotelsExperience({
         });
       });
 
-      // Editorial cards
-      gsap.utils.toArray<HTMLElement>(".editorial-card").forEach((card) => {
+      // EDITORIAL CARDS
+      const cards = gsap.utils.toArray<HTMLElement>(
+        container.current!.querySelectorAll(".editorial-card"),
+      );
+
+      cards.forEach((card) => {
         const image = card.querySelector(".editorial-image");
         const content = card.querySelector(".editorial-content");
 
@@ -413,14 +431,15 @@ export default function HotelsExperience({
           },
         });
 
-        timeline
-          .from(card, {
-            y: 65,
-            opacity: 0,
-            duration: 1.1,
-            ease: "power3.out",
-          })
-          .from(
+        timeline.from(card, {
+          y: 65,
+          opacity: 0,
+          duration: 1.1,
+          ease: "power3.out",
+        });
+
+        if (image) {
+          timeline.from(
             image,
             {
               scale: 1.12,
@@ -428,8 +447,11 @@ export default function HotelsExperience({
               ease: "power3.out",
             },
             "-=0.9",
-          )
-          .from(
+          );
+        }
+
+        if (content) {
+          timeline.from(
             content,
             {
               y: 30,
@@ -439,24 +461,18 @@ export default function HotelsExperience({
             },
             "-=0.8",
           );
+        }
       });
 
-      // Description
-      gsap.from(".description-content", {
-        y: 50,
-        opacity: 0,
-        duration: 1.2,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: ".description-content",
-          start: "top 85%",
-          once: true,
-        },
-      });
-    }, container);
-
-    return () => ctx.revert();
-  }, []);
+      // Refresh after all triggers have been created
+      ScrollTrigger.refresh();
+    },
+    {
+      scope: container,
+      dependencies: [],
+      revertOnUpdate: true,
+    },
+  );
 
   return (
     <main
@@ -500,7 +516,7 @@ export default function HotelsExperience({
 
       {/* INTRODUCTION */}
       <section className='max-w-5xl mx-auto px-6 py-24 md:py-36 text-center'>
-        <span className='reveal-heading text-[10px] tracking-[0.4em] uppercase text-[#a58c68]'>
+        <span className='reveal-heading text-[10px] tracking-[0.4em] uppercase text-cyan-500'>
           A collection of stays
         </span>
 
@@ -514,7 +530,7 @@ export default function HotelsExperience({
           </p>
         )}
 
-        <div className='w-12 h-px bg-[#b99b70] mx-auto mt-12' />
+        <div className='w-12 h-px bg-cyan-600/50 mx-auto mt-12' />
       </section>
 
       {/* EDITORIAL COLLECTION */}
@@ -522,7 +538,7 @@ export default function HotelsExperience({
         id='collection'
         className='w-auto md:max-w-[80vw] mx-auto px-5 md:px-12 pb-28 md:pb-40'>
         <div className='reveal-heading mb-20 md:mb-32'>
-          <span className='text-[10px] tracking-[0.4em] uppercase text-[#a58c68]'>
+          <span className='text-[10px] tracking-[0.4em] uppercase text-cyan-500'>
             Explore the island
           </span>
 
@@ -586,26 +602,30 @@ export default function HotelsExperience({
                       ? "md:col-span-5 md:col-start-1 md:row-start-1 md:pl-8"
                       : "md:col-span-4 md:col-start-9 md:pr-5"
                   }`}>
-                  <span className='text-[10px] tracking-[0.35em] uppercase text-[#a58c68]'>
+                  {/* <span className='text-[10px] tracking-[0.35em] uppercase text-cyan-500'>
                     Stay / {String(index + 1).padStart(2, "0")}
-                  </span>
+                  </span> */}
 
                   <h3 className='font-serif text-3xl md:text-4xl lg:text-5xl leading-tight mt-5'>
                     {property.propertyName}
                   </h3>
 
-                  <div className='w-12 h-px bg-[#b99b70] my-7' />
+                  <div className='w-12 h-px bg-cyan-600/30 my-7' />
+                  {/* bg-[#b99b70] */}
 
                   <p className='text-sm text-zinc-500 leading-8'>
+                    {property.shortdescription}
+                  </p>
+                  {/* <p className='text-sm text-zinc-500 leading-8'>
                     Discover a unique island experience in Dharavandhoo, where
                     the beauty of the Maldives meets the comfort of exceptional
                     accommodation.
-                  </p>
+                  </p> */}
 
                   <Link
                     href={`/ourhotels/${property.slug}`}
-                    className='inline-flex items-center gap-4 mt-9 text-[10px] uppercase tracking-[0.25em] group/link'>
-                    <span className='border-b border-[#b99b70] pb-2'>
+                    className='inline-flex items-center gap-4 mt-9 text-[10px] text-cyan-700 uppercase tracking-[0.25em] group/link'>
+                    <span className='border-b border-cyan-600/30 pb-2'>
                       Discover this stay
                     </span>
 
@@ -622,8 +642,8 @@ export default function HotelsExperience({
 
       {/* DESCRIPTION */}
       {children && (
-        <section className='description-content max-w-6xl mx-auto px-6 pb-28 md:pb-40'>
-          <div className='w-12 h-px bg-[#b99b70] mb-12' />
+        <section className=' max-w-6xl mx-auto px-6 pb-28 md:pb-40'>
+          <div className='w-12 h-px bg-cyan-600/30 mb-12' />
 
           <div className='prose custom-prose body-font text-zinc-500'>
             {children}
@@ -632,7 +652,7 @@ export default function HotelsExperience({
       )}
 
       {/* FOOTER STATEMENT */}
-      <section className='bg-[#203b38] text-white py-24 md:py-36 px-6 text-center'>
+      <section className='bg-[#204350] text-white py-24 md:py-36 px-6 text-center'>
         <span className='text-[10px] tracking-[0.4em] uppercase text-white/50'>
           Your journey begins here
         </span>
@@ -641,7 +661,7 @@ export default function HotelsExperience({
           Let the island become your story.
         </h2>
 
-        <div className='w-12 h-px bg-[#b99b70] mx-auto mt-10' />
+        {/* <div className='w-12 h-px bg-[#b99b70] mx-auto mt-10' /> */}
       </section>
     </main>
   );
