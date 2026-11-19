@@ -336,6 +336,7 @@ import Link from "next/link";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import BackButton from "./GoBack";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -513,9 +514,12 @@ export default function HotelsExperience({
           Dharavandhoo · Maldives
         </div>
       </section>
+      <div className='pt-6 md:pt-12 px-4 md:px-12'>
+        <BackButton />
+      </div>
 
       {/* INTRODUCTION */}
-      <section className='max-w-5xl mx-auto px-6 py-24 md:py-36 text-center'>
+      <section className='max-w-5xl mx-auto px-6 py-12  text-center'>
         <span className='reveal-heading text-[10px] tracking-[0.4em] uppercase text-cyan-500'>
           A collection of stays
         </span>
