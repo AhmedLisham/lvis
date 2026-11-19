@@ -520,12 +520,12 @@ export default function HotelsExperience({
           A collection of stays
         </span>
 
-        <h2 className='reveal-heading font-serif text-3xl md:text-6xl leading-tight mt-7 max-w-4xl mx-auto'>
-          Somewhere between the ocean and your dreams.
+        <h2 className='reveal-heading body-font text-zinc-500 text-3xl md:text-6xl leading-tight mt-7 max-w-4xl mx-auto'>
+          Somewhere between the ocean and your dreams
         </h2>
 
         {shortdescription && (
-          <p className='reveal-heading text-sm md:text-base leading-8 text-zinc-500 mt-8 max-w-2xl mx-auto'>
+          <p className='reveal-heading text-sm md:text-base leading-8 body-font text-zinc-500 mt-8 max-w-2xl mx-auto'>
             {shortdescription}
           </p>
         )}
@@ -538,13 +538,13 @@ export default function HotelsExperience({
         id='collection'
         className='w-auto md:max-w-[80vw] mx-auto px-5 md:px-12 pb-28 md:pb-40'>
         <div className='reveal-heading mb-20 md:mb-32'>
-          <span className='text-[10px] tracking-[0.4em] uppercase text-cyan-500'>
-            Explore the island
+          <span className='text-[10px] tracking-[0.2em] uppercase text-cyan-500'>
+            Explore the island with us!
           </span>
 
           <div className='flex flex-col md:flex-row md:items-end justify-between gap-5 mt-5'>
-            <h2 className='font-serif text-4xl md:text-6xl'>
-              The places we love.
+            <h2 className='body-font text-zinc-500 text-4xl md:text-6xl'>
+              The places we love
             </h2>
 
             <p className='text-xs tracking-wider text-zinc-400'>
@@ -606,14 +606,14 @@ export default function HotelsExperience({
                     Stay / {String(index + 1).padStart(2, "0")}
                   </span> */}
 
-                  <h3 className='font-serif text-3xl md:text-4xl lg:text-5xl leading-tight mt-5'>
+                  <h3 className='body-font text-zinc-500 text-3xl md:text-4xl lg:text-5xl leading-tight mt-5'>
                     {property.propertyName}
                   </h3>
 
                   <div className='w-12 h-px bg-cyan-600/30 my-7' />
                   {/* bg-[#b99b70] */}
 
-                  <p className='text-sm text-zinc-500 leading-8'>
+                  <p className='text-sm text-zinc-500 leading-8 body-font '>
                     {property.shortdescription}
                   </p>
                   {/* <p className='text-sm text-zinc-500 leading-8'>
@@ -658,7 +658,7 @@ export default function HotelsExperience({
         </span>
 
         <h2 className='font-serif text-4xl md:text-6xl max-w-3xl mx-auto mt-7 leading-tight'>
-          Let the island become your story.
+          Let the island become your story
         </h2>
 
         {/* <div className='w-12 h-px bg-[#b99b70] mx-auto mt-10' /> */}

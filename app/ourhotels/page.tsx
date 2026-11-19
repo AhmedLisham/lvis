@@ -171,18 +171,18 @@ export default async function Page() {
       </section>
 
       {/* Bottom Section */}
-      <section className='bg-[#172c32] text-white px-6 py-15 md:py-20 text-center'>
+      <section className='bg-[#204350] text-white px-6 py-15 md:py-20 text-center'>
         {/* <p className='text-cyan-300 text-xs tracking-[0.35em] uppercase mb-5'>
           Your Next Escape
         </p> */}
 
-        <h2 className='font-serif text-3xl md:text-5xl mb-6'>
+        <h2 className='body-font text-3xl md:text-5xl mb-6'>
           Find Your Perfect Stay
         </h2>
 
         <p className='max-w-xl mx-auto text-white/60 text-sm leading-7'>
           Every destination has a story. Discover yours with our collection of
-          unique stays and memorable experiences.
+          unique stays and memorable experiences
         </p>
       </section>
     </main>
