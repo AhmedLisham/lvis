@@ -18,6 +18,22 @@ export const hotelsNearHanifaruBay = defineType({
       rows: 3,
     }),
     defineField({
+      name: "textAboveTitle",
+      title: "Text Above Title",
+      type: "string",
+    }),
+    defineField({
+      name: "textBelowTitle",
+      title: "Text Below Title",
+      type: "string",
+    }),
+    defineField({
+      name: "hotelsTitle",
+      title: "Hotels List Title",
+      type: "text",
+      rows: 2,
+    }),
+    defineField({
       name: "coverImage",
       title: "Cover Photo",
       type: "image",
@@ -29,6 +45,12 @@ export const hotelsNearHanifaruBay = defineType({
       title: "Short Description (before hotels)",
       type: "text",
       rows: 4,
+    }),
+    defineField({
+      name: "footerText",
+      title: "Footer Text",
+      type: "text",
+      rows: 2,
     }),
     defineField({
       name: "description",

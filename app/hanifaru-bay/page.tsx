@@ -44,7 +44,7 @@ export default async function page() {
         </div>
       </div>
 
-      <div className='w-full md:w-[80vw] mx-auto mb-12 md:mb-24 mt-6 lg:mt-12 '>
+      <div className='w-full md:w-[80vw] mx-auto mb-12 md:mb-24 mt-12 lg:mt-24 '>
         <h1 className='text-xl md:text-4xl text-zinc-800 text-center md:text-start body-font my-6 md:my-12'>
           {hanifarubay[0].hanifarubayTitle}
         </h1>

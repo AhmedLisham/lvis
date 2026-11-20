@@ -171,7 +171,11 @@ async function getHotelsData() {
     coverImage,
     subtitle,
     description,
-    shortdescription
+    shortdescription,
+    footerText,
+    hotelsTitle,
+    textAboveTitle,
+    textBelowTitle
   }`;
 
   return client.fetch(
@@ -208,6 +212,10 @@ export default async function Page() {
     <HotelsExperience
       title={hotelsData.title || "Hotels in Dharavandhoo"}
       subtitle={hotelsData.subtitle}
+      footerText={hotelsData.footerText}
+      hotelsTitle={hotelsData.hotelsTitle}
+      textAboveTitle={hotelsData.textAboveTitle}
+      textBelowTitle={hotelsData.textBelowTitle}
       shortdescription={hotelsData.shortdescription}
       coverImage={
         hotelsData.coverImage ? urlFor(hotelsData.coverImage) : undefined

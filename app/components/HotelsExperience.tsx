@@ -354,14 +354,23 @@ type Props = {
   coverImage?: string;
   properties: Property[];
   children?: React.ReactNode;
+  footerText: string;
+  hotelsTitle: string;
+  textAboveTitle: string;
+  textBelowTitle: string;
 };
 
 export default function HotelsExperience({
   title,
+  subtitle,
   shortdescription,
   coverImage,
   properties,
   children,
+  footerText,
+  hotelsTitle,
+  textAboveTitle,
+  textBelowTitle,
 }: Props) {
   const container = useRef<HTMLDivElement>(null);
 
@@ -444,7 +453,7 @@ export default function HotelsExperience({
             image,
             {
               scale: 1.12,
-              duration: 1.5,
+              duration: 1,
               ease: "power3.out",
             },
             "-=0.9",
@@ -460,7 +469,7 @@ export default function HotelsExperience({
               duration: 0.9,
               ease: "power3.out",
             },
-            "-=0.8",
+            "-=0.9",
           );
         }
       });
@@ -496,7 +505,7 @@ export default function HotelsExperience({
 
         <div className='hero-content absolute inset-0 flex flex-col items-center justify-center text-center text-white px-6'>
           <span className='text-[10px] md:text-xs tracking-[0.5em] uppercase mb-7 text-white/70'>
-            Discover Dharavandhoo Maldives
+            {textAboveTitle}
           </span>
 
           <h1 className='body-font text-white text-4xl md:text-7xl max-w-5xl leading-tight'>
@@ -511,7 +520,7 @@ export default function HotelsExperience({
         </div>
 
         <div className='absolute bottom-8 left-8 text-[10px] tracking-[0.3em] uppercase text-white/60 hidden md:block'>
-          Dharavandhoo · Maldives
+          {textBelowTitle}
         </div>
       </section>
       <div className='pt-6 md:pt-12 px-4 md:px-12'>
@@ -525,7 +534,7 @@ export default function HotelsExperience({
         </span>
 
         <h2 className='reveal-heading body-font text-zinc-500 text-3xl md:text-6xl leading-tight mt-7 max-w-4xl mx-auto'>
-          Somewhere between the ocean and your dreams
+          {subtitle}
         </h2>
 
         {shortdescription && (
@@ -541,14 +550,14 @@ export default function HotelsExperience({
       <section
         id='collection'
         className='w-auto md:max-w-[80vw] mx-auto px-5 md:px-12 pb-28 md:pb-40'>
-        <div className='reveal-heading mb-20 md:mb-32'>
-          <span className='text-[10px] tracking-[0.2em] uppercase text-cyan-500'>
+        <div className='reveal-heading mb-8 md:mb-12'>
+          {/* <span className='text-[10px] tracking-[0.2em] uppercase text-cyan-500'>
             Explore the island with us!
-          </span>
+          </span> */}
 
           <div className='flex flex-col md:flex-row md:items-end justify-between gap-5 mt-5'>
-            <h2 className='body-font text-zinc-500 text-4xl md:text-6xl'>
-              The places we love
+            <h2 className='body-font text-zinc-500 text-3xl md:text-5xl'>
+              {hotelsTitle}
             </h2>
 
             <p className='text-xs tracking-wider text-zinc-400'>
@@ -593,8 +602,9 @@ export default function HotelsExperience({
 
                     <div className='absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-700' />
 
-                    <span className='absolute top-6 left-6 text-white text-[10px] tracking-[0.3em]'>
-                      DHARAVANDHOO / {String(index + 1).padStart(2, "0")}
+                    <span className='absolute top-6 left-6 text-white text-[10px] tracking-[0.1em]'>
+                      LVIS HOTELS DHARAVANDHOO /{" "}
+                      {String(index + 1).padStart(2, "0")}
                     </span>
                   </div>
                 </Link>
@@ -662,7 +672,7 @@ export default function HotelsExperience({
         </span>
 
         <h2 className='font-serif text-4xl md:text-6xl max-w-3xl mx-auto mt-7 leading-tight'>
-          Let the island become your story
+          {footerText}
         </h2>
 
         {/* <div className='w-12 h-px bg-[#b99b70] mx-auto mt-10' /> */}
