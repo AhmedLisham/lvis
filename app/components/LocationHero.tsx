@@ -76,7 +76,7 @@ export default function LocationHero({ coverImage }: Props) {
       {/* HERO CONTENT */}
       <div className='hero-content absolute inset-0 flex flex-col items-center justify-center text-center text-white px-6'>
         <h1 className='body-font text-white text-4xl md:text-7xl max-w-5xl leading-tight'>
-          Dharavandhoo, Baa Atoll
+          Dharavandhoo
         </h1>
         <span className='text-[10px] md:text-xs tracking-[0.5em] uppercase mb-7 text-white'>
           Baa Atoll, Maldives

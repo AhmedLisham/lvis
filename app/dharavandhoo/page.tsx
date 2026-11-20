@@ -40,13 +40,11 @@ export default async function page() {
       <div className='pt-4 px-4 lg:pt-8 lg:px-8 flex justify-between  md:sticky md:top-24 z-10'>
         <BackButton />
         <div className=''>
-          <div>
-            <Link
-              href={"/hotels-in-dharavandhoo"}
-              className='text-sm md:text-base bg-cyan-500 hover:bg-cyan-400 px-4 py-1 text-white body-font rounded '>
-              View Hotels
-            </Link>
-          </div>
+          <Link
+            href={"/hotels-in-dharavandhoo"}
+            className='text-sm md:text-base bg-cyan-500 hover:bg-cyan-400 px-4 py-1 text-white body-font rounded '>
+            View Hotels
+          </Link>
         </div>
       </div>
 

@@ -5,6 +5,7 @@ import React from "react";
 import GalleryComponent from "../components/GalleryComponent";
 import { PortableText } from "next-sanity";
 import BackButton from "../components/GoBack";
+import Link from "next/link";
 
 async function getHanifarubayData() {
   const query = `*[_type == "hanifarubay"]{
@@ -32,8 +33,15 @@ export default async function page() {
           className='aspect-4/3 md:aspect-video object-cover w-full'
         />
       </div>
-      <div className='mt-6 md:mt-8 ps-4 md:ps-12'>
+      <div className='pt-4 px-4 lg:pt-8 lg:px-8 flex justify-between  md:sticky md:top-24 z-10'>
         <BackButton />
+        <div className=''>
+          <Link
+            href={"/hotels-near-hanifaru-bay"}
+            className='text-sm md:text-base bg-cyan-500 hover:bg-cyan-400 px-4 py-1 text-white body-font rounded '>
+            View Hotels
+          </Link>
+        </div>
       </div>
 
       <div className='w-full md:w-[80vw] mx-auto mb-12 md:mb-24 mt-6 lg:mt-12 '>
