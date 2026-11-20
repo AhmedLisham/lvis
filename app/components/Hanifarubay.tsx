@@ -21,9 +21,9 @@ export default async function HanifarubayComponent() {
 
   return (
     <div className='px-4'>
-      <h2 className='text-xl md:text-3xl text-cyan-500 text-center  uppercase body-font'>
+      <h1 className='text-xl md:text-3xl text-cyan-500 text-center  uppercase body-font'>
         {hanifarubay[0].hanifarubayTitle}
-      </h2>
+      </h1>
       <h5 className='text-sm md:text-xl text-black/30 text-center mb-4 lg:mb-6 body-font'>
         {hanifarubay[0].subTitle}
       </h5>
@@ -43,7 +43,7 @@ export default async function HanifarubayComponent() {
       </div>
       <div className='mt-4 md:mt-8 w-full flex items-center justify-center'>
         <Link
-          href={"/hanifarubay"}
+          href={"/hanifaru-bay"}
           className='text-sm md:text-base body-font border border-cyan-500 hover:bg-cyan-500 px-6 md:px-8  rounded-xl text-cyan-500 hover:text-white'>
           Learn more
         </Link>

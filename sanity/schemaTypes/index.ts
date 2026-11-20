@@ -10,6 +10,9 @@ import { hanifarubay } from "../schemas/hanifarubay";
 import { contacts } from "../schemas/contacts";
 import { address } from "../schemas/address";
 import { promotions } from "../schemas/promotiions";
+import { ourHotelPageBanner } from "../schemas/ourHotelPageBanner";
+import { hotelsInDharavandhoo } from "../schemas/hotelsInDharavandhoo";
+import { hotelsNearHanifaruBay } from "../schemas/hotelsNearHanifaruBay";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -24,5 +27,8 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     contacts,
     address,
     promotions,
+    hotelsInDharavandhoo,
+    hotelsNearHanifaruBay,
+    ourHotelPageBanner,
   ],
 };

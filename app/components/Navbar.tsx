@@ -13,10 +13,15 @@ const navLinks = [
     url: "/",
   },
 
-  // {
-  //   name: "Our Hotels",
-  //   url: "/ourhotels",
-  // },
+  {
+    name: "Our Hotels",
+    url: "/ourhotels",
+  },
+
+  {
+    name: "Destination",
+    url: "/dharavandhoo",
+  },
 
   {
     name: "Promotions",
@@ -106,10 +111,10 @@ export default function Navbar() {
           className={`duration-500 px-2 py-2  md:px-0 
             w-screen z-50 fixed`}>
           <div
-            className={`group flex justify-between w-full items-center bg-transparent duration-500 md:hover:bg-white/80 md:hover:text-cyan-600 md:dark:hover:bg-black  ${
+            className={`group flex justify-between w-full items-center bg-transparent duration-500 md:hover:bg-white/80 md:hover:text-cyan-600   ${
               scrollPosition < 200
                 ? "md:bg-transparent text-white"
-                : "md:bg-white/80 dark:md:bg-black text-cyan-600"
+                : "md:bg-white/80  text-cyan-600"
             } md:px-12 py-4`}>
             <div className=''>
               <Link href={"/"}>
@@ -135,7 +140,7 @@ export default function Navbar() {
                         href={navItem.url}
                         className={`inline-block border-b body-font ${
                           navItem.url === path
-                            ? `border-b  ${scrollPosition < 200 ? "boder-white group-hover:border-zinc-400 " : "border-zinc-400"}`
+                            ? `border-b  ${scrollPosition < 200 ? "boder-white group-hover:border-cyan-600/40 " : "border-cyan-600/40"}`
                             : "border-transparent"
                         }  dark:text-gray-100  tracking-wider md:text-sm lg:text-base z-50 px-1 py-2`}>
                         {navItem.name}
@@ -156,12 +161,12 @@ export default function Navbar() {
                 <MdClose
                   onClick={() => setIsOpen(false)}
                   size={32}
-                  className=' text-zinc-500 cursor-pointer'
+                  className=' text-cyan-500 cursor-pointer'
                 />
               ) : (
                 <GiHamburgerMenu
                   onClick={() => setIsOpen(true)}
-                  className='text-3xl md:text-5xl text-white cursor-pointer bg-zinc-300 p-1 md:p-2 rounded'
+                  className='text-3xl md:text-5xl text-white cursor-pointer bg-cyan-600 p-1 md:p-2 rounded'
                 />
               )}
             </div>
@@ -185,7 +190,7 @@ export default function Navbar() {
                     <div className='flex justify-end w-screen pe-4 md:pe-12'>
                       <MdClose
                         size={32}
-                        className='text-zinc-400 cursor-pointer md:mx-6 mt-2'
+                        className='text-cyan-600 cursor-pointer md:mx-6 mt-2'
                         onClick={() => setIsOpen(false)}
                       />
                     </div>
@@ -208,7 +213,7 @@ export default function Navbar() {
                                 href={navItem.url}
                                 onClick={() => setIsOpen(false)}
                                 className='block w-full  mx-auto'>
-                                <div className='mx-auto py-2 md:py-6 px-4  hover:bg-white/10 bg-zinc-400 body-font w-full  menu-shadow rounded'>
+                                <div className='mx-auto py-2 md:py-6 px-4  hover:bg-white/10 bg-cyan-600/60 body-font w-full  menu-shadow rounded'>
                                   <div className='text-xl md:text-2xl text-white uppercase tracking-wider '>
                                     {navItem.name}
                                   </div>

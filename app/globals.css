@@ -12,10 +12,13 @@
 .body-font {
   font-family: PT_Serif, sans-serif;
 }
+.prose h3 {
+  color: gray;
+}
 
-/* .prose strong {
-  color: white;
-} */
+.prose strong {
+  color: gray;
+}
 .custom-prose {
   max-width: none;
 }

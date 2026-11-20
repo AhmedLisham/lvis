@@ -102,5 +102,25 @@ export const properties = defineType({
         },
       ],
     }),
+    defineField({
+      name: "seoTitle",
+      title: "SEO Title",
+      type: "string",
+      description: "Title displayed in Google search results",
+    }),
+    defineField({
+      name: "seoDescription",
+      title: "SEO Meta Description",
+      type: "text",
+      rows: 3,
+      description: "Description displayed in Google search results",
+    }),
+    // defineField({
+    //   name: "seoKeywords",
+    //   title: "SEO Keywords",
+    //   type: "array",
+    //   of: [{ type: "string" }],
+    //   description: "Relevant search keywords for this property",
+    // }),
   ],
 });
