@@ -16,5 +16,23 @@ export const promotions = defineType({
       type: "image",
       options: { hotspot: true },
     }),
+    defineField({
+      name: "promotionList",
+      title: "Promotion List",
+      type: "array",
+      of: [
+        {
+          type: "object",
+          fields: [
+            defineField({
+              name: "itemName",
+              title: "Item Name",
+              type: "string",
+              validation: (Rule) => Rule.required(),
+            }),
+          ],
+        },
+      ],
+    }),
   ],
 });
