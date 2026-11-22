@@ -47,10 +47,10 @@ export async function generateMetadata(): Promise<Metadata> {
   const data = await getHotelsData();
 
   return {
-    title: "Hotels in Dharavandhoo",
+    title: "Hotels Near Hanifaru Bay",
     description: data?.shortdescription || data?.subtitle,
     openGraph: {
-      title: "Hotels in Dharavandhoo",
+      title: "Hotels Near Hanifaru Bay",
       description: data?.shortdescription || data?.subtitle,
     },
   };

@@ -5,7 +5,8 @@ import React from "react";
 
 async function getPromotionsData() {
   const query = `*[_type == "promotions"]{
-        coverPhoto
+        coverPhoto,
+        promotionList[]
     }`;
   const data = await client.fetch(query, {}, { next: { revalidate: 60 } });
 
@@ -29,6 +30,26 @@ export default async function page() {
       <h1 className='pt-12 md:pt-24 text-xl md:text-3xl text-zinc-400 text-center mb-4 lg:mb-8 uppercase body-font'>
         Promotions
       </h1>
+      <div className=' w-full md:w-[80vw] mx-auto pb-24 px-4 md:px-0'>
+        {promotions[0].promotionList === null ? (
+          <p className=' text-xl md:text-3xl text-center text-zinc-300 mb-4 body-font '>
+            No promotions available at the moment. Stay tuned for exciting
+            offers coming soon!
+          </p>
+        ) : (
+          <div>
+            {promotions[0].promotionList.map((list: any, index: number) => {
+              return (
+                <div key={index}>
+                  <p className='text-zinc-400 mb-4 body-font'>
+                    {list.itemName}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+        )}
+      </div>
     </div>
   );
 }
